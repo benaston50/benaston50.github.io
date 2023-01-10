@@ -1,0 +1,48 @@
+{ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "description": "Various US measures state by state",
+  
+    "title": {
+      "text": "Life expectancy vs. Crime rate",
+      "subtitle":["Life expectancy (x), and crimes per 100k population (y), and size showing age"],
+      "subtitleFontStyle":"italic",
+      "subtitleFontSize":10,
+      "anchor": "start",
+      "color": "black"
+    },
+  
+    "data": {
+      "url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/USScatter.csv",
+      "format":{"type":"csv"}},
+  
+    "mark": {
+      "type":"circle",
+      "size":100,
+      "color":"rgb(100,67,167)",
+      "opacity":0.6},
+      "tooltips":"true",
+    
+    "height": 300,
+    "width": 250,
+  
+    "encoding": {
+      "x": {
+        "field": "Life Expectancy", 
+        "type": "quantitative",
+        "scale": {"domain": [74, 83]},
+        "title":null},
+  
+      "y": {
+        "field": "Crime Rate", 
+        "type": "quantitative",
+        "title":null},
+  
+
+      "size": {
+        "field": "Median Age", 
+        "type": "quantitative",
+        "title":"Median Age",
+        "scale": { "range": [10, 400],"domain": [31, 45]}
+     }
+  }
+  }

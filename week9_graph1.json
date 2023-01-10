@@ -1,0 +1,42 @@
+{ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "Various US measures state by state",
+
+  "title": {
+    "text": "Crime Rate and Life Expectancy - US states",
+    "subtitle":["Life expectancy (x), and crime rate per 100k population (y)",""],
+    "subtitleFontStyle":"italic",
+    "subtitleFontSize":10,
+    "anchor": "start",
+    "color": "black"
+  },
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/USScatter.csv",
+    "format":{"type":"csv"}},
+
+  "mark": {
+    "type":"circle",
+    "size":150,
+    "color":"rgb(150,67,100)",
+    "opacity":0.6},
+  
+  "height": 300,
+  "width": 300,
+
+  "encoding": {
+
+    "x": {
+      "field": "Life Expectancy", 
+      "type": "quantitative",
+      "scale":{"domain": [74, 83]},
+      "title":null
+      },
+
+    "y": {
+      "field": "Crime Rate", 
+      "type": "quantitative",
+      "title":null
+      }
+   }
+}
