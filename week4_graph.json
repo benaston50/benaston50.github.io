@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "SAS litter",
+    "title": {
+  
+      "text": "Coronavirus Cases by Country",
+  
+      "subtitle": "Countries with the highest COVID cases, Source: worldometer",
+  
+      "subtitleFontStyle":"italic",
+  
+      "subtitleFontSize":10,
+  
+      "anchor": "start",
+  
+      "color": "black"
+   },
+  
+    "data": {"url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/week4csv.csv"},
+    "mark":{
+  
+   
+  
+        "type": "bar",
+  
+        "color": "#7d67ff",
+  
+        "strokeWidth":2,
+  
+        "opacity":1
+  
+   
+  
+      },
+    "height": 300,
+    "width": 250,
+  
+    "encoding": {
+      "y": {"field": "Country", "type": "ordinal", "sort":[], "title": null},
+  
+  
+  
+  
+      "x": {"field": "TotalCases", "type": "quantitative", "title": null}
+   
+  
+      }
+  
+  
+  }

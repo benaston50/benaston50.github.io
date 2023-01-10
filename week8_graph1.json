@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+
+   "title": {
+    "text": "Bitcoin price history",
+    "subtitle":"Monthly Bitcoin price in US$. Source: Yahoo Finance",
+    "subtitleFontStyle":"italic",
+    "subtitleFontSize":10,
+    "anchor": "start",
+    "color": "black",
+    "subtitleColor":"black"},
+
+
+
+    "width":300,
+    "height":300,
+
+
+    "data": {
+      "name":"myData",
+      "url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/BTChistory.csv"},
+
+
+    "mark":{
+      "type": "line",
+      "color":"darkorange",
+      "strokeWidth":2,
+      "opacity":1
+    },
+
+
+    "transform": [
+      {"calculate": "timeParse(datum.Date, '%d/%m/%Y')", "as": "date"},
+      {"calculate": "year(datum.date)", "as": "year"},
+
+      {"filter": "datum.year>=minYear"},
+      {"filter": "datum.year<=maxYear"}
+  ],
+
+    "params": [    
+      {"name":"minYear", "value":2016,
+         "bind":{
+           "input": "range",
+           "min": 2014, 
+           "max": 2023, 
+           "step": 1,
+           "name": "Start year:"}
+      },
+
+      {"name":"maxYear", "value":2021,
+         "bind":{
+           "input": "range",
+           "min": 2014, 
+           "max": 2023, 
+           "step": 1,
+           "name": "End year:"}
+      }
+    ],
+
+
+
+    "encoding": {
+      
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title":null
+        },
+  
+      "y": {
+        "field": "Close",                
+        "type": "quantitative",
+        "title":null}
+        }
+  }

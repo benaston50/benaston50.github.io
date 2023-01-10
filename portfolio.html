@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title for the page -->
+    <title>Portfolio - Ben Aston</title>
+
+    <!-- Link to my style sheet -->
+    <link rel="stylesheet" href="index.css">
+
+    <!--The next three lines allow the Vega embed-->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
+</head>
+
+
+
+<body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="portfolio.html">Portfolio</a>
+        <a href="project.html">Project</a>
+      </div>
+    <!-- A div that contains a group of items for week 1. Can be useful for setting background colours etc.  -->
+    <div class="myWeek1">
+        <h1>Data Science portfolio - Ben Aston</h1>
+        <br>
+        <h2>Week 1</h2>
+        <h3>Bitcoin Daily price</h3>
+        <p>This chart tracks the daily average price of Bitcoin in US$ from 2016 to 2021</p>
+        <div class="chart" id="Chart1"></div>
+        <br>
+        <h3>Bitcoin Weekly price</h3>
+        <p>This chart looks at the average weekly price of Bitcoin in US$ from 2020 to 2021</p>
+        <div class="chart" id="Chart2"> </div>
+        <br>
+        <h2>Week 2</h2>
+        <p>This chart shows the value of IMF lending to all members from 1984 to 2022</p>
+        <div class="chart" id="Chart3"></div>
+        <br>
+        <p>This chart shows the value of IMF lending to all members from 1984 to 2022, as a proportion of the global Gross Domestic Product.</p>
+        <div class="chart" id="Chart4"></div>
+        <br>
+        <p>The IMF lent the most in 1984 when compared with GDP, indicating it was the riskiest year.</p>
+        <br>
+        <h2>Week 3</h2>
+        <p>This chart shows how inflation changed yearly in various Europoean countries from 1990 to 2021, with data embedded in the chart</p>
+        <div class="chart" id="Chart5"></div>
+        <br>
+        <p>This is the same chart, displayed as a line graph</p>
+        <div class="chart" id="Chart6"></div>
+        <br>
+        <p>I chose to change the data to a line graph as it makes the data easier to comprehend and compare.</p>
+        <br>
+        <h2>Week 4</h2>
+        <p>A copy of my Colab can be found <a href="https://colab.research.google.com/drive/1-iCi7MCHobTsaXyEAkOTyqCljcpGXZaA?usp=sharing">here</a>
+        <div class="chart" id="Chart7"></div>
+        <br>
+        <p>I chose to use Worldometer as it was easy to extract the data and the table.</p>
+        <br>
+        <h2>Week 5</h2>
+        <p>A copy of my Colab can be found <a href="https://colab.research.google.com/drive/1mAiGUTf8fb3q1sv4W39dSKZE8etF_B8I?usp=sharing">here</a>
+        <div class="grid-container" style = "display: grid;">
+            <div class = "grid-item"><div class = dashchart  id="Chart8" style = "display: block;"></div ></div>
+            <div class = "grid-item"><div class = dashchart  id="Chart9" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="Chart10" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="Chart11" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="Chart12" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="Chart13" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="Chart14" style = "display: block;"></div></div>
+            <div class = "grid-item"><div class = dashchart  id="Chart15" style = "display: block;"></div></div>
+            <div class = "grid-item"><div class = dashchart  id="Chart16" style = "display: block;"></div></div>
+        </div>
+        <br>
+        <h2>Week 7</h2>
+        <p>My first map is the World Map, with tooltips for each country name.</p>
+        <div class="map-item" id="Chart17"></div>
+        <br>
+        <p>This next chloropleth map has colouring to show population levels.</p>
+        <br>
+        <div class="map-item" id="Chart18"></div>
+        <br>
+        <p>As you can see, China and India have a population which far surpasses all other countries.</p>
+        <h2>Week 8</h2>
+        <p>After attending the Festival of Economics talk on Cryptocurrencies, Dinis Guarda argued that cryptocurrency has a sustainable future in replacing money.</p>
+        <div class="chart" id="Chart19"></div>
+        <br>
+        <div class="chart" id="Chart20"></div>
+        <br>
+        <p>Due to these graphs, I conclude that the biggest cryptocurrency is massively volatile and correlated with 'hype'. Therefore, it does not seem as if it can replace money.</p>
+    </div> 
+   
+</body>
+
+
+<script>
+    //Define charts:
+    var myChart1 = "chart1_btcprice.json";
+    var myChart2 = "chart2_btcweekly.json";
+    var myChart3 = "week2_graph1.json";
+    var myChart4 = "week2_graph2.json";
+    var myChart5 = "week3_graph1.json";
+    var myChart6 = "week3_graph2.json";
+    var myChart7 = "week4_graph.json";
+    var myChart8 = "week5_AIXR.json";
+    var myChart9 = "week5_LF2Q.json";
+    var myChart10 = "week5_MGSX.json";
+    var myChart11 = "week5_MGSY.json";
+    var myChart12 = "week5_MGSZ.json";
+    var myChart13 = "week5_MGXB.json";
+    var myChart14 = "week5_MGXD.json";
+    var myChart15 = "week5_YBVY.json";
+    var myChart16 = "week5_YCNK.json";
+    var myChart17 = "worldmap.json";
+    var myChart18 = "worldmap_pop.json";
+    var myChart19 = "week8_graph1.json";
+    var myChart20 = "week8_graph2.json";
+
+    // Embed charts:
+    vegaEmbed('#Chart1', myChart1);
+    vegaEmbed('#Chart2', myChart2);
+    vegaEmbed('#Chart3', myChart3);
+    vegaEmbed('#Chart4', myChart4);
+    vegaEmbed('#Chart5', myChart5);
+    vegaEmbed('#Chart6', myChart6);
+    vegaEmbed('#Chart7', myChart7);
+    vegaEmbed('#Chart8', myChart8);
+    vegaEmbed('#Chart9', myChart9);
+    vegaEmbed('#Chart10', myChart10);
+    vegaEmbed('#Chart11', myChart11);
+    vegaEmbed('#Chart12', myChart12);
+    vegaEmbed('#Chart13', myChart13);
+    vegaEmbed('#Chart14', myChart14);
+    vegaEmbed('#Chart15', myChart15);
+    vegaEmbed('#Chart16', myChart16);
+    vegaEmbed('#Chart17', myChart17);
+    vegaEmbed('#Chart18', myChart18);
+    vegaEmbed('#Chart19', myChart19);
+    vegaEmbed('#Chart20', myChart20);
+</script>
+
+</html>
+
+

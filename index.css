@@ -9,34 +9,107 @@
 
 /* Set the background color for my page: */
 body{
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(150, 150, 150);
  
 }
 
 
 /* Choose the appearance of the tags, h1, h3 and p: */
-h1, h3, p{
-    color:rgb(17, 17, 17);
+h1, h2, h3, p{
+    color:rgb(0, 0, 0);
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
     
 .myWeek1{
     margin: auto;
-    max-width: 600px;
-    background-color: bisque;
+    max-width: 700px;
+    background-color: rgb(220, 220, 220);
+    justify-items: center;
+
 }
 
 
 /* Set the apperance of the class, chart */
 .chart{
-    background-color: orange;
-    width:330px;
-    border-width: 10px;
+    background-color: rgb(229, 229, 229);
+    border-width: 5px;
     border-style: solid;
-    border-radius: 5px;
-    border-color: red;
-
-    
+    border-radius: 2px;
+    border-color: rgb(33, 33, 33);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 15%
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  justify-content: center !important;
+  vertical-align: bottom;
+  text-align: center;
+  align-content: center;
+  margin:auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: xx-small;
+  font-family: 'Roboto', sans-serif;
+}
+
+.grid-item {
+  background-color: rgb(229, 229, 229);
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: rgb(33, 33, 33);
+  padding: 10px;
+  text-align: center; 
+  height: 240px;
+  width: 200px;
+  display: inline-block !important;
+  min-width: 280px;
+  font-size: 10px;
+  margin: 0 auto;
+  padding-bottom: 75px;
+}
+.map-item{
+  background-color: rgb(229, 229, 229);
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: rgb(33, 33, 33);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 3%
+}
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #0064c2;
+    color: white;
+  }
     
