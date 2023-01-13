@@ -1,0 +1,45 @@
+{ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "UK",
+
+  "title": {
+    "text": "CPI vs. Unemployment",
+    "subtitle":["Unemployment (x), and CPI (y)","Source: ONS"],
+    "subtitleFontStyle":"italic",
+    "subtitleFontSize":10,
+    "anchor": "start",
+    "color": "black"
+  },
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/CPIUnemp.csv",
+    "format":{"type":"csv"}},
+
+  "mark": {
+    "type":"circle",
+    "size":150,
+    "color":"rgb(150,67,100)",
+    "opacity":0.6},
+  
+  "height": 300,
+  "width": 300,
+
+
+
+  "encoding": {
+
+    "x": {
+      "field": "Unemployment", 
+      "type": "quantitative",
+      "scale":{"domain": [3.5, 5.6]},
+      "title":"Unemployment (%)"
+      },
+
+    "y": {
+      "field": "CPI", 
+      "type": "quantitative",
+      "title":"Consumer Price Index (2015=100)"
+      },
+    "tooltip":{"field":"Month"}
+   }
+}

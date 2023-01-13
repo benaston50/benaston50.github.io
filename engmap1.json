@@ -1,0 +1,51 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "England COVID map for all regions in England.",
+    "title": {
+      "text": "England Total Regional COVID cases",
+      "subtitle": "Cumulative, 2023. Source: ONS",
+      "subtitleFontStyle": "italic",
+      "subtitleFontSize": 10,
+      "anchor": "start",
+      "color": "rgba(58, 59, 60)"
+    },
+    "config": {"background": "white", "view": {"stroke": "transparent"}},
+    "width": 220,
+    "height": 350,
+    "data": {
+      "url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/ukmapgeo.json",
+      "format": {"property": "features"}
+    },
+    "projection": {"type": "mercator"},
+    "transform": [
+      {
+        "lookup": "properties.EER13NM",
+        "from": {
+          "key": "areaName",
+          "fields": ["cumCasesBySpecimenDate"],
+          "data": {
+            "url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/englandCOVIDnew.csv"
+          }
+        }
+      }
+    ],
+    "mark": {"type": "geoshape", "stroke": "black", "strokeWidth": 0.8},
+    "encoding": {
+      "color": {
+        "field": "cumCasesBySpecimenDate", 
+        "type": "quantitative",
+        "title": "Total Cases",
+        "scale":{"scheme": "lightgreyred"}},
+      "tooltip": [
+        {
+          "field": "properties.EER13NM",
+          "type": "nominal",
+          "title": "Region"
+        },
+        {
+          "field": "cumCasesBySpecimenDate",
+          "title": "Total Region Cases"
+        }
+      ]
+    }
+  }

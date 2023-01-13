@@ -1,0 +1,41 @@
+{"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+      "text": "Regional average energy cost",
+      "subtitle":"Direct debit, ppkWh, Source: gov.uk",
+      "subtitleFontStyle":"italic",
+      "subtitleFontSize":10,
+      "anchor": "start",
+      "color": "black"},
+  
+  "data":{"url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/Energydataregional.csv"},
+  
+  
+  "height": 300,
+  "width": 260,
+
+  "mark": {
+    "type": "line",
+    "color": "#596cff"},
+
+"encoding": {
+     "x": {
+       "field": "Year",
+       "type": "temporal",
+       "axis": {
+         "title": null,
+         "grid": false,
+         "ticks": false,
+         "labelAngle": 45}},
+
+      "y": {
+        "field": "Unit Cost",
+        "type": "quantitative",
+        "title": "Direct Debit cost (pence per kWh)",
+        "axis": {"grid": false},
+        "scale":{"domain": [15, 35]}},
+      "color": {"field": "Region", "type": "nominal"},
+      "tooltip":[{"field":"Region"},
+      {"field":"Unit Cost"}]
+}
+}

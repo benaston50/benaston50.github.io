@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title for the page -->
+    <title>Project - Ben Aston</title>
+
+    <!-- Link to my style sheet -->
+    <link rel="stylesheet" href="project.css">
+
+    <!--The next three lines allow the Vega embed-->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.2"></script>
+</head>
+
+
+
+<body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a class="active" href="project.html">Project</a>
+      </div>
+    <div class="project">
+        <h1>COVID-19 and the Cost of Living in England</h1>
+    </div>
+    <div class="projectA">
+        <h2>Aims of my Project</h2>
+        <p> England has, in recent months, been plagued by a Cost of Living crisis. This includes a large level 
+            of inflation, major increases in energy prices and wage increases which do not reflect such financial strain.
+            By undertaking this project, I aim to discover if the COVID-19 Pandemic has contributed to England's 
+            current Cost of Living crisis, and if so to what extent.</p>
+        <p> I aim to examine different factors, such as the changes in various aspects of the Cost of Living, 
+            how employment and earnings have changed and regional and societal variations in impact.</p>
+    </div>
+    <div class="project1">
+        <h2>How hard did COVID-19 hit each region of England?</h2>
+        <p> Before analysing which regions of England are most impacted by the Cost of Living crisis, 
+            I decided it would be beneficial to see the impact of COVID-19 on regions, allowing me to draw comparisons
+            later between regions in terms of COVID-19 effect and the cost of living.
+        </p>
+        <div class="map-item" id="pChart1"></div>
+        <p> As is visible in the chart, the North West and the South East had the highest number of coronavirus cases.
+            This is likely due to the multiple major cities in these areas such as London, Manchester and Liverpool.
+        </p>
+        <p> However, due to higher populations in these areas this does not necessarily reflect the true impact of 
+            COVID-19 on individuals, so I then found the number of people per positive COVID test in each region.
+        </p>
+        <div class="map-item" id="pChart2"></div>
+        <p>
+            This shows that COVID-19 levels were roughly similar in all regions but the South West and West Midlands 
+            had the greatest per-person COVID rates, which could indicate COVID had a higher impact in these areas.
+        </p>
+        <p>
+            I retrieved this data from the <a href="https://www.ons.gov.uk/">ONS</a> website and used an open source <a href="http://martinjc.github.io/UK-GeoJSON/">GeoJSON Generator</a> to create the map of England.
+            I could not immediately use the data and had to clean and standardise it first, and struggled initially to match
+            region identities in both the map files and the data file. After analysing both files, I managed to fix all inconsistencies
+            to get all regions functioning.
+        </p>
+    </div>
+
+    <div class="project1">
+        <h2>How does the Cost of Living compare between regions?</h2>
+        <p>By comparing energy costs across regions through COVID, I can see to what extent each region is impacted by COVID.</p>
+        <div class="chart" id="pChart12"></div>
+        <p>This graph shows that energy prices have shot up.
+            It also indicates that the impact of the Cost of Living crisis is fairly consistent across regions, showing
+            the regional cases of COVID had little to no impact on energy prices. This could be because energy prices
+            were raised by an outside shock, or because restrictions were consistent across all regions.
+        </p>
+        <p>
+            For this graph, I attempted to scrape data from a 3rd party site using different methods as seen on my colab, but the site
+            had restrictions that I could not bypass with pandas or BeautifulSoup, so I opted to copy the table myself. As the data was
+            very limited, I opted not to use it and instead use the public time series data from gov.uk.
+        </p>
+        <p>
+            My colab can be found <a href="https://colab.research.google.com/drive/1XzoR0Z0T0macSc2i5H1gV-Qg06gV5fBq?usp=sharing">here</a>
+        </p>
+    </div>
+
+    <div class="project1">
+        <h2>What are key metrics for the Cost of Living?</h2>
+        <p>
+            I believed it would give me a helpful insight into the Cost of Living crisis by looking into key metrics relating
+            to inflation, both CPI and RPI related. I also wanted to compare this to changes in labour costs to see how worker
+             pay has changed.
+        </p>
+
+        <div class="grid-container" style = "display: grid;">
+            <div class = "grid-item"><div class = dashchart  id="pChart3" style = "display: block;"></div ></div>
+            <div class = "grid-item"><div class = dashchart  id="pChart4" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="pChart5" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="pChart6" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="pChart7" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="pChart8" style = "display: block;"></div></div>
+            <div class = "ghgrid-item" ><div class = dashchart id="" style = "display: block;"></div></div>
+            <div class = "grid-item" ><div class = dashchart id="pChart9" style = "display: block;"></div></div>
+            <div class = "ghgrid-item" ><div class = dashchart id="" style = "display: block;"></div></div>
+        </div>
+        <p>
+            Multiple of these graphs, such as the CPI index, CPI energy weighting and RPI leisure goods weighting saw a 
+            shock around COVID.
+        </p>
+        <p>
+            In creating these graphs, I used Python code to access the ONS API and download time series all at once. This was 
+            a struggle as each dataset had different timescales, so I had to pick data wisely and cater the code specifically 
+            for each graph.
+        </p>
+        <p>
+            My colab can be found <a href="https://colab.research.google.com/drive/1tZ5qlmj3bSr6n-ZJR_K0QX6FHJBnaSJE?usp=sharing">here</a>
+        </p>
+    </div>
+    <div class="project1">
+        <h2>How does Inflation relate to Unemployment?</h2>
+        <p>
+            Next, I wanted to analyse if inflation had a relation to unemployment, as COVID caused businesses to lay off many staff.
+        </p>
+        <div class="chart" id="pChart10"></div>
+        <p>I also used Python code to run a regression AI.</p>
+        <div class="picchart" id="pChart11">
+            <img src="CPIVSUNEMP.png" alt="data" width= "480" height= "320"  >
+        </div>
+        <p>
+            This showed the expected relationship. CPI and Unemployment are statistically significant with an R-Squared value
+            of 0.438, meanining lower levels of unemployment leads to higher inflation levels. However, by hovering over the graph
+            you can see many of the high points with low unemployment are recent, showing there is not lasting unemployment due to
+            COVID and is instead a desire for workers from companies. For this data I had to standardise the timescales for the data.
+        </p>
+        <p>
+            My colab can be found <a href="https://colab.research.google.com/drive/1LbePRuz0YjQikWOdzx1rzJuHQa8Mtplf?usp=sharing">here</a>
+        </p>
+    </div>
+    <div class="projectA">
+        <h2>Conclusions</h2>
+        <p>
+            Through the graphs I have analysed in this project, I have come to the conclusion that the disruptions caused
+            through COVID-19 are not significantly at fault for causing the current Cost of Living crisis, although it could
+            have had minor impacts as a supporting factor to create a volatile economy.
+        </p>
+    </div>
+</body>
+
+<script>
+    var pChart1 = "engmap1.json";
+    var pChart2 = "engmap2.json";
+    var pChart3 = "P2_D7F4.json";
+    var pChart4 = "P2_A9F3.json";
+    var pChart5 = "P2_DKC3.json";
+    var pChart6 = "P2_CZHN.json";
+    var pChart7 = "P2_DOLW.json";
+    var pChart8 = "P2_CZFI.json";
+    var pChart9 = "P2_LNNL.json";
+    var pChart10 = "CPIInf.json";
+    var pChart11 = "CPIVSUNEMP.png";
+    var pChart12 = "regEnergy.json";
+
+
+    vegaEmbed('#pChart1', pChart1);
+    vegaEmbed('#pChart2', pChart2);
+    vegaEmbed('#pChart3', pChart3);
+    vegaEmbed('#pChart4', pChart4);
+    vegaEmbed('#pChart5', pChart5);
+    vegaEmbed('#pChart6', pChart6);
+    vegaEmbed('#pChart7', pChart7);
+    vegaEmbed('#pChart8', pChart8);
+    vegaEmbed('#pChart9', pChart9);
+    vegaEmbed('#pChart10', pChart10);
+    vegaEmbed('#pChart11', pChart11);
+    vegaEmbed('#pChart12', pChart12);
+
+</script>
+
+</html>
+
+

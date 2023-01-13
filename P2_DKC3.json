@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "CPI Index",
+      "subtitle": ["Medical services, 2015 = 100, Source: ONS"],
+      "subtitleFontStyle": "italic",
+      "subtitleFontSize": 10,
+      "anchor": "start",
+      "color": "black"
+    },
+    "width": 175,
+    "height": 200,
+    "data": {
+      "url": "https://raw.githubusercontent.com/benaston50/benaston50.github.io/main/Pdata_ONS-DKC3.json",
+      "format": {"type": "json", "property": "years"}
+    },
+    "mark": {
+      "type": "line",
+      "color": "#5768ff",
+      "strokeWidth": 1.5,
+      "opacity": 1
+    },
+    "transform": [
+      {"filter": "datum.year>minYear"},
+      {"filter": "datum.year<maxYear"}
+    ],
+    "params": [
+      {
+        "name": "minYear",
+        "value": 2000,
+        "bind": {
+          "input": "range",
+          "min": 2000,
+          "max": 2021,
+          "step": 1,
+          "name": "Start year:"
+        }
+      },
+      {
+        "name": "maxYear",
+        "value": 2022,
+        "bind": {
+          "input": "range",
+          "min": 2000,
+          "max": 2022,
+          "step": 1,
+          "name": "End year:"
+        }
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": null,
+        "axis": {"grid": false}
+      },
+      "y": {
+        "field": "value",
+        "type": "quantitative",
+        "title": null,
+        "axis": {"grid": false}
+      }
+    },
+    "config": {}
+  }
