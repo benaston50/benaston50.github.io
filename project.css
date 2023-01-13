@@ -14,7 +14,7 @@ body{
 }
 
 
-/* Choose the appearance of the tags, h1, h3 and p: */
+/* Choose the appearance of the tags, h1, h2, h3 and p: */
 h1, h2, h3, p{
     color:rgb(0, 0, 0);
     font-family: 'Roboto', sans-serif;
@@ -33,6 +33,7 @@ h1, h2, h3, p{
     font-family: 'Roboto', sans-serif;
     margin-left: 15%
 }
+/*Appearance of python-generated picture chart*/
 .picchart{
   background-color: rgb(229, 229, 229);
   border-width: 5px;
@@ -45,6 +46,7 @@ h1, h2, h3, p{
   height: 320px;
   width: 480px;
 }
+/*Multi-chart grid container*/
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -60,7 +62,7 @@ h1, h2, h3, p{
   font-size: xx-small;
   font-family: 'Roboto', sans-serif;
 }
-
+/*grid component aka chart*/
 .grid-item {
   background-color: rgb(229, 229, 229);
   border-width: 5px;
@@ -77,6 +79,7 @@ h1, h2, h3, p{
   margin: 0 auto;
   padding-bottom: 75px;
 }
+/*ghost grid item as workaround placeholder for blank charts*/
 .ghgrid-item {
   background-color: transparent;
   border-width: 0px;
@@ -93,6 +96,7 @@ h1, h2, h3, p{
   margin: 0 auto;
   padding-bottom: 75px;
 }
+/*appearance of maps*/
 .map-item{
   background-color: rgb(229, 229, 229);
   border-width: 5px;
@@ -144,7 +148,7 @@ h1, h2, h3, p{
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
-    
+/*class for project*/
 .project{
     margin: auto;
     max-width: 700px;
@@ -152,6 +156,7 @@ h1, h2, h3, p{
     justify-items: center;
     border-radius: 20px;
 }
+/*class for project*/
 .projectA{
     margin: auto;
     max-width: 700px;
@@ -159,6 +164,7 @@ h1, h2, h3, p{
     justify-items: center;
     border-radius: 20px;
 }
+/*class for project*/
 .project1{
     margin: auto;
     max-width: 700px;
